@@ -16,6 +16,14 @@ topo_planet
       geo_posvel         novas.c
 			tdb2tt             novas.c
 			sidereal_time      novas.c
+				tdb2tt             novas.c
+				era                novas.c
+				e_tilt             novas.c
+				cio_location       novas.c
+				cio_basis          novas.c
+				nutation           novas.c
+				precession         novas.c
+				frame_tie          novas.c
 			e_tilt             novas.c
 			terra              novas.c
 			nutation           novas.c
@@ -42,7 +50,12 @@ topo_planet
       nutation           novas.c
 			e_tilt             novas.c
 				nutation_angles    novas.c
+					iau2000a           nutation.c
+					iau2000b           nutation.c
+					nu2000k            nutation.c
 				ee_ct              novas.c
+					norm_ang           novas.c
+					fund_args          novas.c
 				mean_obliq         novas.c
       cio_location       novas.c
 			cio_array          novas.c
@@ -56,4 +69,14 @@ topo_planet
       vector2radec       novas.c
 equ2hor
 	ter2cel            novas.c
+      tdb2tt             novas.c
+      wobble             novas.c
+      cio_location       novas.c
+      cio_basis          novas.c
+      era                novas.c
+      spin               novas.c
+      sidereal_time      novas.c
+      nutation           novas.c
+      precession         novas.c
+      frame_tie          novas.c
 	refract            novas.c
