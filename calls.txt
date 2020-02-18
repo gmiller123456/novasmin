@@ -1,0 +1,59 @@
+types:
+on_surface
+cat_entry
+object
+
+make_on_surface
+make_cat_entry
+make_object
+topo_planet
+	make_observer
+	place
+      make_cat_entry     novas.c
+      make_object        novas.c
+      tdb2tt             novas.c
+      ephemeris          novas.c
+      geo_posvel         novas.c
+			tdb2tt             novas.c
+			sidereal_time      novas.c
+			e_tilt             novas.c
+			terra              novas.c
+			nutation           novas.c
+			precession         novas.c
+			frame_tie          novas.c
+      starvectors        novas.c
+      d_light            novas.c
+      proper_motion      novas.c
+      bary2obs           novas.c
+      light_time         novas.c
+			ephemeris        novas.c
+			bary2obs         novas.c
+      limb_angle         novas.c
+      grav_def           novas.c
+			make_cat_entry     novas.c
+			make_object        novas.c
+			ephemeris          novas.c
+			bary2obs           novas.c
+			d_light            novas.c
+			grav_vec           novas.c
+      aberration         novas.c
+      frame_tie          novas.c
+      precession         novas.c
+      nutation           novas.c
+			e_tilt             novas.c
+				nutation_angles    novas.c
+				ee_ct              novas.c
+				mean_obliq         novas.c
+      cio_location       novas.c
+			cio_array          novas.c
+			ira_equinox        novas.c
+				e_tilt             novas.c
+      cio_basis          novas.c
+			nutation           novas.c
+			precession         novas.c
+			frame_tie          novas.c
+      rad_vel            novas.c
+      vector2radec       novas.c
+equ2hor
+	ter2cel            novas.c
+	refract            novas.c
