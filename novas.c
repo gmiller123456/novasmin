@@ -1725,6 +1725,7 @@ short int place (double jd_tt, object *cel_object,
        vob[i] = veb[i] + vog[i];
     }
 
+
 /*
    ---------------------------------------------------------------------
    Find geometric position of observed object.
@@ -1762,6 +1763,13 @@ short int place (double jd_tt, object *cel_object,
 
       if ((error = ephemeris (jd,cel_object,0,accuracy, pos1,vel1)) != 0)
          return (error += 10);
+printf("pos1 x=%25.15f\r\n",pos1[0]);
+printf("pos1 y=%25.15f\r\n",pos1[1]);
+printf("pos1 z=%25.15f\r\n",pos1[2]);
+
+printf("vel1 x=%25.15f\r\n",vel1[0]);
+printf("vel1 y=%25.15f\r\n",vel1[1]);
+printf("vel1 z=%25.15f\r\n",vel1[2]);
 
 /*
    Get position of body wrt observer, and true (Euclidian) distance.
@@ -3059,6 +3067,7 @@ short int sidereal_time (double jd_high, double jd_low,
 */
 
    theta = era (jd_high, jd_low);
+printf("Theta=%20f\r\n",theta);
 
 /*
    Compute the equation of the equinoxes if needed, depending upon the
@@ -3137,6 +3146,7 @@ short int sidereal_time (double jd_high, double jd_low,
          break;
 
       case (1):
+printf("eqeq=%20f\r\n",eqeq);
 
 /*
    Use equinox method.  See Circular 179, Section 2.6.2.
@@ -3153,7 +3163,6 @@ short int sidereal_time (double jd_high, double jd_low,
                     -    0.00000044   ) * t
                     +    1.3915817    ) * t
                     + 4612.156534     ) * t;
-
 /*
    Form the Greenwich sidereal time.
 */
@@ -4240,7 +4249,6 @@ void e_tilt (double jd_tdb, short int accuracy,
    if (((fabs (jd_tdb - jd_last)) > 1.0e-8) || (acc_diff != 0))
    {
       nutation_angles (t,accuracy, &dp,&de);
-
 /*
    Obtain complementary terms for equation of the equinoxes in
    arcseconds.
@@ -4268,7 +4276,6 @@ void e_tilt (double jd_tdb, short int accuracy,
 */
 
    mean_ob = mean_obliq (jd_tdb);
-
 /*
    Compute true obliquity of the ecliptic in arcseconds.
 */
@@ -4298,6 +4305,8 @@ void e_tilt (double jd_tdb, short int accuracy,
    *ee   = eq_eq;
    *mobl = mean_ob;
    *tobl = true_ob;
+
+
 
    return;
 }
@@ -5242,6 +5251,8 @@ short int geo_posvel (double jd_tt, double delta_t, short int accuracy,
    nutation (jd_tdb,-1,accuracy,pos1, pos2);
    precession (jd_tdb,pos2,T0, pos3);
    frame_tie (pos3,-1, pos);
+
+
 
 /*
    Transform geocentric velocity vector of observer to GCRS.
@@ -6589,7 +6600,7 @@ void nutation (double jd_tdb, short int direction, short int accuracy,
    yz = cpsi * cobm * sobt - sobm * cobt;
    zz = cpsi * sobm * sobt + cobm * cobt;
 
-   if (!direction)
+   if (direction==-1)
    {
 
 /*

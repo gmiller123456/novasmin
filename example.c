@@ -68,6 +68,8 @@ int main (void)
    double jd_tt = jd_utc + ((double) leap_secs + 32.184) / 86400.0;
    double jd_ut1 = jd_utc + ut1_utc / 86400.0;
    double delta_t = 32.184 + leap_secs - ut1_utc;
+
+   printf("jd_utc=%f\r\n",jd_utc);
    
    if ((error = topo_planet (jd_tt,&moon,delta_t,&geo_loc,accuracy,
       &rat,&dect,&dist)) != 0)
