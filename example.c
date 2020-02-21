@@ -86,10 +86,10 @@ int main (void)
    ignored here.)
 */
    
-   equ2hor (jd_ut1,delta_t,accuracy,0.0,0.0,&geo_loc,rat,dect,1,
+   equ2hor (jd_ut1,delta_t,accuracy,0.0,0.0,&geo_loc,rat,dect,0,
       &zd,&az,&rar,&decr);
 
-   printf ("Moon zenith distance and azimuth:\n");
+   printf ("Moon alt and azimuth:\n");
    printf ("%15.10f        %15.10f\n", zd, az);
    printf ("\n");
 

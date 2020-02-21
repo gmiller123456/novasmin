@@ -1725,7 +1725,6 @@ short int place (double jd_tt, object *cel_object,
        vob[i] = veb[i] + vog[i];
     }
 
-
 /*
    ---------------------------------------------------------------------
    Find geometric position of observed object.
@@ -1763,14 +1762,6 @@ short int place (double jd_tt, object *cel_object,
 
       if ((error = ephemeris (jd,cel_object,0,accuracy, pos1,vel1)) != 0)
          return (error += 10);
-printf("pos1 x=%25.15f\r\n",pos1[0]);
-printf("pos1 y=%25.15f\r\n",pos1[1]);
-printf("pos1 z=%25.15f\r\n",pos1[2]);
-
-printf("vel1 x=%25.15f\r\n",vel1[0]);
-printf("vel1 y=%25.15f\r\n",vel1[1]);
-printf("vel1 z=%25.15f\r\n",vel1[2]);
-
 /*
    Get position of body wrt observer, and true (Euclidian) distance.
 */
@@ -3067,7 +3058,6 @@ short int sidereal_time (double jd_high, double jd_low,
 */
 
    theta = era (jd_high, jd_low);
-printf("Theta=%20f\r\n",theta);
 
 /*
    Compute the equation of the equinoxes if needed, depending upon the
@@ -3146,7 +3136,6 @@ printf("Theta=%20f\r\n",theta);
          break;
 
       case (1):
-printf("eqeq=%20f\r\n",eqeq);
 
 /*
    Use equinox method.  See Circular 179, Section 2.6.2.
@@ -3402,7 +3391,6 @@ short int ter2cel (double jd_ut_high, double jd_ut_low, double delta_t,
    jd_tdb = jd_tt;
    tdb2tt (jd_tdb, &dummy,&secdiff);
    jd_tdb = jd_tt + secdiff / 86400.0;
-
    switch (method)
    {
       case (0):
@@ -6600,7 +6588,7 @@ void nutation (double jd_tdb, short int direction, short int accuracy,
    yz = cpsi * cobm * sobt - sobm * cobt;
    zz = cpsi * sobm * sobt + cobm * cobt;
 
-   if (direction==-1)
+   if (!direction)
    {
 
 /*
